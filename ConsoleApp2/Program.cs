@@ -97,7 +97,10 @@ namespace ConsoleApp2
                 "z niepotrzebnym mieszasz lękiem? \n" +
                 "Jesteś - a więc musisz minąć. \n" +
                 "Miniesz - a więc to jest piękne.\"\n" +
-                "\t\t - Wisława Szymborska "); ;
+                "\t\t - Wisława Szymborska ");
+
+            //Przejscie do nastepnej linii
+            Console.WriteLine("\n");
         }
         public static void TaskFour()
         {
