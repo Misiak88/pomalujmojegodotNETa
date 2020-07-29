@@ -40,6 +40,7 @@ namespace ConsoleApp2
             TaskFive();
             // Zadanie 6
             TaskSix();
+
         }
         public static void TaskOne()
         {
@@ -49,7 +50,7 @@ namespace ConsoleApp2
             // Wykorzystanie Metody Drukowania Console.WriteLine(); na ekranie łańcucha znaków
             // Skrót w VS do Console.WriteLine(); --> cw + tab + tab
             Console.WriteLine("Michal Kaminski");
-            
+
             // Wykorzystanie klasy string do przypisania calego lancucha znakow i wydrukowanie na ekranie
             string Name = "Michal Kaminski";
             Console.WriteLine(Name);
@@ -184,7 +185,7 @@ namespace ConsoleApp2
 
             // Dzielenie
             Console.WriteLine($"{NumberOne} / {NumberTwo} = {NumberOne / NumberTwo}\n");
-            
+
         }
     }
 }
