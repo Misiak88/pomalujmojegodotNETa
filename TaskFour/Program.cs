@@ -36,7 +36,7 @@ namespace TaskFour
             //// Metoda wywołująca zadanie 15
             //QuestFifteen();
             //// Metoda wywołująca zadanie 16
-            //QuestSixteen();
+            QuestSixteen();
         }
         public static void QuestOne()
         {
