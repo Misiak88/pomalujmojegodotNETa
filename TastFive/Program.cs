@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.ExceptionServices;
 
 namespace TastFive
 {
@@ -25,6 +24,7 @@ namespace TastFive
             //QuestEight();
             ////Metoda z rozwiazaniem do zadania 9
             //QuestNine();
+            QuestTen();
 
         }
         public static void QuestOne()
@@ -310,7 +310,7 @@ namespace TastFive
             Console.WriteLine("Porsze podać wartość Skalara");
             int valScalar = int.Parse(Console.ReadLine());
 
-            MatrixMultiplication(superNumberArray, valScalar);
+            MatrixMultiplicationScalar(superNumberArray, valScalar);
 
             ShowArray2D(superNumberArray);
 
@@ -361,9 +361,41 @@ namespace TastFive
             }
 
             ShowArray2D(superNumberArray);
-            MatrixPowTwo(superNumberArray);           
+            MatrixPowTwo(superNumberArray);
+
 
         }
+        public static void QuestTen()
+        {
+            //Zad. 10
+            //Potraktuj tablicę dwuwymiarową jako macierz kwadratową.
+            //Napisz program, w którym:
+            //a) stworzysz dwie tablice dwuwymiarowe o rozmiarze 3x3
+            //b) wypełnisz ich elementy liczbami z zakresu od 0 do 9
+            //c) wypiszesz w konsoli otrzymane macierze, zachowując ich układ
+            //d) przemnożysz ze sobą macierze pierwszą z drugą i drugą z pierwszą i wypiszesz otrzymane
+            //macierze w konsoli.
+
+            int[,] superNumberArrayOne = new int[3, 3];
+            int[,] superNumberArrayTwo = new int[3, 3];
+
+            for (int i = 0; i < superNumberArrayOne.GetLength(0); i++)
+            {
+                for (int j = 0; j < superNumberArrayOne.GetLength(1); j++)
+                {
+                    superNumberArrayOne[i, j] = PseudorandomNumberGenerator(0, 9);
+                    superNumberArrayTwo[i,j] = PseudorandomNumberGenerator(0, 9);
+                }
+            }
+            Console.WriteLine("Macierz A");
+            ShowArray2D(superNumberArrayOne);
+            Console.WriteLine("Macierz B");
+            ShowArray2D(superNumberArrayTwo);
+
+            MatrixMultiplicationMatrix(superNumberArrayOne, superNumberArrayTwo, "A x B");
+            MatrixMultiplicationMatrix(superNumberArrayTwo, superNumberArrayOne, "B x A");
+        }
+
 
 
         //Generator liczb pseudolosowych
@@ -452,7 +484,7 @@ namespace TastFive
             }
         }
         // Mnożenie macierzy przez skalar
-        public static void MatrixMultiplication(int[,] array, int valScalar)
+        public static void MatrixMultiplicationScalar(int[,] array, int valScalar)
         {
             for (int i = 0; i < array.GetLength(0); i++)
             {
@@ -482,13 +514,33 @@ namespace TastFive
             Console.WriteLine("\n\tMacierz podniesiony do kwadratu");
             Console.WriteLine("-------------------------------------------");
             for (int i = 0; i < array.GetLength(0); i++)
-            {               
+            {
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
                     int tempVal = 0;
                     for (int k = 0; k < array.GetLength(1); k++)
                     {
-                        tempVal += (array[i,k] * array[k,j]);
+                        tempVal += (array[i, k] * array[k, j]);
+                    }
+                    Console.Write(tempVal + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+        // Mnożenie Macierzy z drukowaniem na ekranie
+        public static void MatrixMultiplicationMatrix(int[,] arrayOne, int[,] arrayTwo, string text)
+        {
+            Console.WriteLine($"\tWynik mnożenia Macierza {text}");
+            Console.WriteLine("----------------------------------------");
+
+            for (int i = 0; i < arrayOne.GetLength(0); i++)
+            {
+                for (int j = 0; j < arrayOne.GetLength(1); j++)
+                {
+                    int tempVal = 0;
+                    for (int k = 0; k < arrayOne.GetLength(1); k++)
+                    {
+                        tempVal += (arrayOne[i, k] * arrayTwo[k, j]);
                     }
                     Console.Write(tempVal + " ");
                 }
